@@ -6,6 +6,17 @@ Pick the scores of any k students from the array so that the difference between 
 Return the minimum possible difference.
 */
 
+/*
+For this problem, we only need groups of k students such that the lowest and highest scores of these groups is minimized.
+We can just sort the array and check the endpoints using two pointers as these pointers will automatically pick 
+the lowest/highest score differences across a group of k students with minimized score differences. 
+For example, if we had the array {1, 2, 3, 4, 5, 6, 7, 8} and k = 3, we wouldn't need to care about the group 
+{1, 7, 8} because the scores aren't minimized. But we could worry about {3, 4, 5} because the lowest/highest scores are 
+minimized. In other words, we don't need subsequences, we need subarrays of a sorted array. But again, only the endpoints matter 
+so we can use two pointers to find the start and end of those subarrays. The minimum difference of all of these subarrays is the answer.
+Note: 1 is an edge case to avoid the need to sort and go through the entire array when the answer will always be 0.
+*/
+
 class Solution {
 public:
     int minimumDifference(vector<int>& nums, int k) {
