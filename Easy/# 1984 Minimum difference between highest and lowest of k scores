@@ -19,11 +19,11 @@ Note: 1 is an edge case to avoid the need to sort and go through the entire arra
 
 class Solution {
 public:
-    int minimumDifference(vector<int>& nums, int k) {
+    int minimumDifference(std::vector<int>& nums, int k) {
         if (k <= 1) {
             return 0;
         }
-        sort(nums.begin(), nums.end());
+        std::sort(nums.begin(), nums.end());
         int minDiff = INT_MAX;
         for (int i = 0; i <= nums.size()-k; i++) {
             minDiff = std::min(minDiff, nums[i+k-1] - nums[i]);
